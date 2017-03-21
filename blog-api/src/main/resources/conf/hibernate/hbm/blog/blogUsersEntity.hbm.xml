@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.jim.api.entities.blog.blogUsersEntity" table="users" schema="blog">
+        <id name="id">
+            <column name="id" sql-type="bigint(100) unsigned"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="password">
+            <column name="password" sql-type="varchar(255)"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="avatar">
+            <column name="avatar" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="nickname">
+            <column name="nickname" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="url">
+            <column name="url" sql-type="varchar(300)" length="300"/>
+        </property>
+        <property name="rememberToken">
+            <column name="remember_token" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="activationKey">
+            <column name="activation_key" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="status">
+            <column name="status" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="onlineStatus">
+            <column name="online_status" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="feeling">
+            <column name="feeling" sql-type="varchar(100)" length="100"/>
+        </property>
+        <property name="createdAt">
+            <column name="created_at" sql-type="datetime"/>
+        </property>
+        <property name="updatedAt">
+            <column name="updated_at" sql-type="datetime"/>
+        </property>
+    </class>
+</hibernate-mapping>

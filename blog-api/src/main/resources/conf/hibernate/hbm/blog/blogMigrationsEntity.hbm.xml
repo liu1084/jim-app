@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.jim.api.entities.blog.blogMigrationsEntity" table="migrations" schema="blog">
+        <id name="id">
+            <column name="id" sql-type="int(10) unsigned"/>
+        </id>
+        <property name="migration">
+            <column name="migration" sql-type="varchar(255)"/>
+        </property>
+        <property name="batch">
+            <column name="batch" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>
