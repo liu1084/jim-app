@@ -1,4 +1,4 @@
-package com.jim.web;
+package com.jim.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,17 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * This class is ...
  */
 @Controller
-public class WebController {
+public class WebController extends WebBaseController {
 	@RequestMapping(value = {"/", ""})
 	public String index(Model model) {
 		model.addAttribute("message", "hello");
 		model.addAttribute("name", "jim");
 		return "index";
-	}
-
-	@RequestMapping(value = "/error")
-	public String error(Model model) {
-		model.addAttribute("message", "page not found...");
-		return "error";
 	}
 }

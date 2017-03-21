@@ -28,4 +28,16 @@
         <servlet-name>web</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!--error start-->
+    <error-page>
+        <location>/WEB-INF/views/errors/error-404.jsp</location>
+        <error-code>404</error-code>
+    </error-page>
+
+    <error-page>
+        <location>/WEB-INF/views/errors/error-50x.jsp</location>
+        <error-code>500</error-code>
+    </error-page>
+    <!--error end-->
 </web-app>
