@@ -1,5 +1,7 @@
 package com.jim.api.entities.blog;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 
@@ -10,17 +12,25 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "articles", schema = "blog")
 public class BlogArticlesEntity {
+	@Expose
 	private long id;
+	@Expose
 	private String title;
+	@Expose
 	private String content;
+	@Expose
 	private String background;
+	@Expose
 	private long userId;
 	private String status;
 	private String password;
 	private int sticky;
+	@Expose
 	private byte rating;
 	private long parent;
+	@Expose
 	private String commentStatus;
+	@Expose
 	private int commentCount;
 	private Timestamp createdAt;
 	private Timestamp updatedAt;
