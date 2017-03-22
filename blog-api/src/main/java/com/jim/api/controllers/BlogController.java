@@ -1,4 +1,4 @@
-package com.jim.api.blog.controller;
+package com.jim.api.controllers;
 
 import com.jim.api.BaseController;
 import org.springframework.stereotype.Controller;
