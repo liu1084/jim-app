@@ -2,6 +2,7 @@ package com.jim.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jim.json.SuperclassExclusionStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,9 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class BaseController {
 	protected final Logger logger = LoggerFactory.getLogger(BaseController.class);
-	protected GsonBuilder gsonBuilder = new GsonBuilder();
+	private GsonBuilder gsonBuilder = new GsonBuilder()
+			.addDeserializationExclusionStrategy(new SuperclassExclusionStrategy())
+			.addSerializationExclusionStrategy(new SuperclassExclusionStrategy())
+			.excludeFieldsWithoutExposeAnnotation();
 	protected Gson gson = gsonBuilder.create();
 }
