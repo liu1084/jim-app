@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "user_role", schema = "blog", catalog = "")
-public class blogUserRoleEntity {
+public class BlogUserRoleEntity {
 	private int id;
 	private long userId;
 	private int roleId;
@@ -48,7 +48,7 @@ public class blogUserRoleEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		blogUserRoleEntity that = (blogUserRoleEntity) o;
+		BlogUserRoleEntity that = (BlogUserRoleEntity) o;
 
 		if (id != that.id) return false;
 		if (userId != that.userId) return false;

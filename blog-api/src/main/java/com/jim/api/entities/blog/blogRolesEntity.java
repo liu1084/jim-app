@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "roles", schema = "blog", catalog = "")
-public class blogRolesEntity {
+public class BlogRolesEntity {
 	private int id;
 	private String name;
 	private String description;
@@ -82,7 +82,7 @@ public class blogRolesEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		blogRolesEntity that = (blogRolesEntity) o;
+		BlogRolesEntity that = (BlogRolesEntity) o;
 
 		if (id != that.id) return false;
 		if (name != null ? !name.equals(that.name) : that.name != null) return false;

@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "books", schema = "ebook", catalog = "")
-public class ebookBooksEntity {
+public class EbookBooksEntity {
 	private long id;
 	private String name;
 	private String description;
@@ -158,7 +158,7 @@ public class ebookBooksEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		ebookBooksEntity that = (ebookBooksEntity) o;
+		EbookBooksEntity that = (EbookBooksEntity) o;
 
 		if (id != that.id) return false;
 		if (pages != that.pages) return false;

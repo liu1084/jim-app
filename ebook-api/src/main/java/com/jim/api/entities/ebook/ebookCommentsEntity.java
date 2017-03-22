@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "comments", schema = "ebook", catalog = "")
-public class ebookCommentsEntity {
+public class EbookCommentsEntity {
 	private long id;
 	private long parentId;
 	private String title;
@@ -148,7 +148,7 @@ public class ebookCommentsEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		ebookCommentsEntity that = (ebookCommentsEntity) o;
+		EbookCommentsEntity that = (EbookCommentsEntity) o;
 
 		if (id != that.id) return false;
 		if (parentId != that.parentId) return false;

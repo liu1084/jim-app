@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "migrations", schema = "blog", catalog = "")
-public class blogMigrationsEntity {
+public class BlogMigrationsEntity {
 	private int id;
 	private String migration;
 	private int batch;
@@ -48,7 +48,7 @@ public class blogMigrationsEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		blogMigrationsEntity that = (blogMigrationsEntity) o;
+		BlogMigrationsEntity that = (BlogMigrationsEntity) o;
 
 		if (id != that.id) return false;
 		if (batch != that.batch) return false;
