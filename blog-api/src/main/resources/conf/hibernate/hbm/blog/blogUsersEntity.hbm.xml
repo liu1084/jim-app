@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.jim.api.entities.blog.blogUsersEntity" table="users" schema="blog">
+    <class name="com.jim.api.entities.blog.BlogUsersEntity" table="users" schema="blog">
         <id name="id">
             <column name="id" sql-type="bigint(100) unsigned"/>
         </id>

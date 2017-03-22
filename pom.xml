@@ -8,7 +8,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>jimapp-api</module>
+        <module>blog-api</module>
+        <module>ebook-api</module>
         <module>jimapp-core</module>
         <module>jimapp-web</module>
     </modules>
@@ -59,10 +60,10 @@
         <!--<id>central</id>-->
         <!--<url>http://10.4.45.12:8081/nexus/content/groups/public/</url>-->
         <!--</repository>-->
-        <repository>
-            <id>central</id>
-            <url>http://central.maven.org/maven2/</url>
-        </repository>
+        <!--<repository>-->
+            <!--<id>central</id>-->
+            <!--<url>http://central.maven.org/maven2/</url>-->
+        <!--</repository>-->
         <repository>
             <id>mirrors</id>
             <url>http://45.79.180.85:8081/nexus/content/groups/public/</url>

@@ -7,31 +7,31 @@
     <session-factory>
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
-        <!--<property name="connection.url">jdbc:mysql://localhost:3306/blog</property>-->
-        <!--<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
         <property name="current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/blog</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
-        <mapping resource="conf/hibernate/hbm/blog/blogArticlesEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogArticlesEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/blogArticlesMetadataEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogArticlesMetadataEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/blogCommentsEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogCommentsEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/blogCommentsMetadataEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogCommentsMetadataEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/blogMigrationsEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogMigrationsEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/blogRolesEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogRolesEntity"/>
-        <!--<mapping resource="conf/hibernate/hbm/blog/blogSessionsEntity.hbm.xml"/>-->
-        <!--<mapping class="com.jim.api.entities.blog.blogSessionsEntity"/>-->
-        <mapping resource="conf/hibernate/hbm/blog/blogUserMetaEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogUserMetaEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/blogUserRoleEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogUserRoleEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/blogUsersEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogUsersEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/blogUsersMetadataEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.blogUsersMetadataEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogArticlesEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogArticlesEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogArticlesMetadataEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogArticlesMetadataEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogCommentsEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogCommentsEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogCommentsMetadataEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogCommentsMetadataEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogMigrationsEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogMigrationsEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogRolesEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogRolesEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogSessionsEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogSessionsEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogUserMetaEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogUserMetaEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogUserRoleEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogUserRoleEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogUsersEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogUsersEntity"/>
+        <mapping resource="conf/hibernate/hbm/blog/BlogUsersMetadataEntity.hbm.xml"/>
+        <mapping class="com.jim.api.entities.blog.BlogUsersMetadataEntity"/>
     </session-factory>
 </hibernate-configuration>

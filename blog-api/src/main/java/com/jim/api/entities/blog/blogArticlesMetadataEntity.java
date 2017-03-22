@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "articles_metadata", schema = "blog", catalog = "")
-public class blogArticlesMetadataEntity {
+public class BlogArticlesMetadataEntity {
 	private long id;
 	private long articleId;
 	private String key;
@@ -59,7 +59,7 @@ public class blogArticlesMetadataEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		blogArticlesMetadataEntity that = (blogArticlesMetadataEntity) o;
+		BlogArticlesMetadataEntity that = (BlogArticlesMetadataEntity) o;
 
 		if (id != that.id) return false;
 		if (articleId != that.articleId) return false;

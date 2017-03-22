@@ -1,5 +1,7 @@
 package com.jim.api;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -11,4 +13,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class BaseController {
 	protected final Logger logger = LoggerFactory.getLogger(BaseController.class);
+	protected GsonBuilder gsonBuilder = new GsonBuilder();
+	protected Gson gson = gsonBuilder.create();
 }

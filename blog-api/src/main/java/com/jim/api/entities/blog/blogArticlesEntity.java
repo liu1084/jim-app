@@ -8,8 +8,8 @@ import java.sql.Timestamp;
  * This class is ...
  */
 @Entity
-@Table(name = "articles", schema = "blog", catalog = "")
-public class blogArticlesEntity {
+@Table(name = "articles", schema = "blog")
+public class BlogArticlesEntity {
 	private long id;
 	private String title;
 	private String content;
@@ -170,7 +170,7 @@ public class blogArticlesEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		blogArticlesEntity that = (blogArticlesEntity) o;
+		BlogArticlesEntity that = (BlogArticlesEntity) o;
 
 		if (id != that.id) return false;
 		if (userId != that.userId) return false;
