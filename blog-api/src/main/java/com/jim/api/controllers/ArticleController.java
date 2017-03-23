@@ -1,10 +1,9 @@
 package com.jim.api.controllers;
 
-import com.jim.api.dto.ArticleDTO;
+import com.jim.api.model.dto.ArticleDTO;
 import com.jim.controllers.BaseController;
-import com.jim.api.bo.IArticleBO;
+import com.jim.api.service.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ import java.util.List;
 @RequestMapping("/article")
 public class ArticleController extends BaseController {
 	@Autowired
-	private IArticleBO articleBO;
+	private IArticleService articleBO;
 
 	@RequestMapping(value= {"", "/"})
 	public String index(){

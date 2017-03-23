@@ -29,7 +29,7 @@
         <property name="systemPropertiesMode" value="2"/>
     </bean>
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="c">
         <property name="driverClassName" value="${webapp.datasource.driverClass}"/>
         <property name="url" value="${webapp.ebook.datasource.jdbcUrl}"/>
         <property name="username" value="${webapp.datasource.user}"/>

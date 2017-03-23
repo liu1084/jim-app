@@ -1,4 +1,4 @@
-package com.jim.api.entities.blog;
+package com.jim.api.model.entity;
 
 import javax.persistence.*;
 
@@ -7,10 +7,10 @@ import javax.persistence.*;
  * This class is ...
  */
 @Entity
-@Table(name = "comments_metadata", schema = "blog", catalog = "")
-public class BlogCommentsMetadataEntity {
+@Table(name = "user_meta", schema = "blog", catalog = "")
+public class BlogUserMetaEntity {
 	private long id;
-	private long commentId;
+	private long userId;
 	private String key;
 	private String value;
 
@@ -25,17 +25,17 @@ public class BlogCommentsMetadataEntity {
 	}
 
 	@Basic
-	@Column(name = "commentId", nullable = false)
-	public long getCommentId() {
-		return commentId;
+	@Column(name = "user_id", nullable = false)
+	public long getUserId() {
+		return userId;
 	}
 
-	public void setCommentId(long commentId) {
-		this.commentId = commentId;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 	@Basic
-	@Column(name = "key", nullable = false, length = 50)
+	@Column(name = "key", nullable = false, length = 100)
 	public String getKey() {
 		return key;
 	}
@@ -45,7 +45,7 @@ public class BlogCommentsMetadataEntity {
 	}
 
 	@Basic
-	@Column(name = "value", nullable = false, length = -1)
+	@Column(name = "value", nullable = false, length = 300)
 	public String getValue() {
 		return value;
 	}
@@ -59,10 +59,10 @@ public class BlogCommentsMetadataEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		BlogCommentsMetadataEntity that = (BlogCommentsMetadataEntity) o;
+		BlogUserMetaEntity that = (BlogUserMetaEntity) o;
 
 		if (id != that.id) return false;
-		if (commentId != that.commentId) return false;
+		if (userId != that.userId) return false;
 		if (key != null ? !key.equals(that.key) : that.key != null) return false;
 		if (value != null ? !value.equals(that.value) : that.value != null) return false;
 
@@ -72,7 +72,7 @@ public class BlogCommentsMetadataEntity {
 	@Override
 	public int hashCode() {
 		int result = (int) (id ^ (id >>> 32));
-		result = 31 * result + (int) (commentId ^ (commentId >>> 32));
+		result = 31 * result + (int) (userId ^ (userId >>> 32));
 		result = 31 * result + (key != null ? key.hashCode() : 0);
 		result = 31 * result + (value != null ? value.hashCode() : 0);
 		return result;

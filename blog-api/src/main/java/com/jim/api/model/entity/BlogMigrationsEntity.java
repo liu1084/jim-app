@@ -1,4 +1,4 @@
-package com.jim.api.entities.blog;
+package com.jim.api.model.entity;
 
 import javax.persistence.*;
 

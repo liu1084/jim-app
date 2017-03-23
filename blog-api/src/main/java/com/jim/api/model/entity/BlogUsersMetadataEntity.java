@@ -1,4 +1,4 @@
-package com.jim.api.entities.blog;
+package com.jim.api.model.entity;
 
 import javax.persistence.*;
 
@@ -7,8 +7,8 @@ import javax.persistence.*;
  * This class is ...
  */
 @Entity
-@Table(name = "user_meta", schema = "blog", catalog = "")
-public class BlogUserMetaEntity {
+@Table(name = "users_metadata", schema = "blog", catalog = "")
+public class BlogUsersMetadataEntity {
 	private long id;
 	private long userId;
 	private String key;
@@ -35,7 +35,7 @@ public class BlogUserMetaEntity {
 	}
 
 	@Basic
-	@Column(name = "key", nullable = false, length = 100)
+	@Column(name = "key", nullable = false, length = 50)
 	public String getKey() {
 		return key;
 	}
@@ -45,7 +45,7 @@ public class BlogUserMetaEntity {
 	}
 
 	@Basic
-	@Column(name = "value", nullable = false, length = 300)
+	@Column(name = "value", nullable = false, length = -1)
 	public String getValue() {
 		return value;
 	}
@@ -59,7 +59,7 @@ public class BlogUserMetaEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		BlogUserMetaEntity that = (BlogUserMetaEntity) o;
+		BlogUsersMetadataEntity that = (BlogUsersMetadataEntity) o;
 
 		if (id != that.id) return false;
 		if (userId != that.userId) return false;

@@ -1,8 +1,8 @@
 package com.jim.service.impl;
 
-import com.jim.entity.Entity;
-import com.jim.repository.BaseJPARepository;
-import com.jim.service.BaseService;
+import com.jim.entity.IEntity;
+import com.jim.repository.IBaseJPARepository;
+import com.jim.service.IBaseService;
 import org.hibernate.criterion.Order;
 
 import java.io.Serializable;
@@ -12,28 +12,28 @@ import java.util.Collection;
  * Created by jim on 2017/3/23.
  * This class is ...
  */
-public abstract class BaseJPAServiceImpl<T extends Entity, ID extends Serializable> implements BaseService<T, ID> {
-	protected BaseJPARepository<T, ID> baseJPARepository;
+public abstract class BaseJPAServiceImpl<T extends IEntity, ID extends Serializable> implements IBaseService<T, ID> {
+	protected IBaseJPARepository<T, ID> baseJpaRepository;
 	protected Class<T> clazz;
 
 	@Override
 	public T insert(T object) {
-		return baseJPARepository.insert(object);
+		return IBaseJPARepository.insert(object);
 	}
 
 	@Override
 	public T update(T object) {
-		return baseJPARepository.update(object);
+		return IBaseJPARepository.update(object);
 	}
 
 	@Override
 	public void delete(T object) {
-		baseJPARepository.delete(object);
+		IBaseJPARepository.delete(object);
 	}
 
 	@Override
 	public T findById(ID id) {
-		return baseJPARepository.findById(id);
+		return IBaseJPARepository.findById(id);
 	}
 
 	@Override

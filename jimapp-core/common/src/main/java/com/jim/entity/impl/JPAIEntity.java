@@ -1,6 +1,6 @@
 package com.jim.entity.impl;
 
-import com.jim.entity.Entity;
+import com.jim.entity.IEntity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,12 +9,12 @@ import java.util.Date;
  * Created by jim on 2017/3/23.
  * This class is ...
  */
-public class JPAEntity<T extends Serializable> implements Entity<T> {
+public class JPAIEntity<T extends Serializable> implements IEntity<T> {
 	protected T id;
 	protected Date createdAt;
 	protected Date updatedAt;
 
-	public JPAEntity(){
+	public JPAIEntity(){
 		createdAt = new Date();
 		updatedAt = new Date();
 	}

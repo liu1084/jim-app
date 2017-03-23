@@ -14,26 +14,26 @@
         <!--<property name="connection.username">root</property>-->
 
         <mapping resource="conf/hibernate/hbm/blog/BlogArticlesEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogArticlesEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogArticlesIEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogArticlesMetadataEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogArticlesMetadataEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogArticlesMetadataEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogCommentsEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogCommentsEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogCommentsEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogCommentsMetadataEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogCommentsMetadataEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogCommentsMetadataEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogMigrationsEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogMigrationsEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogMigrationsEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogRolesEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogRolesEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogRolesEntity"/>
         <!--<mapping resource="conf/hibernate/hbm/blog/BlogSessionsEntity.hbm.xml"/>-->
         <!--<mapping class="com.jim.api.entities.blog.BlogSessionsEntity"/>-->
         <mapping resource="conf/hibernate/hbm/blog/BlogUserMetaEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogUserMetaEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogUserMetaEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogUserRoleEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogUserRoleEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogUserRoleEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogUsersEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogUsersEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogUsersEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogUsersMetadataEntity.hbm.xml"/>
-        <mapping class="com.jim.api.entities.blog.BlogUsersMetadataEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogUsersMetadataEntity"/>
     </session-factory>
 </hibernate-configuration>

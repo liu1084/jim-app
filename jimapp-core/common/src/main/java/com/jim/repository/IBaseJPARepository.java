@@ -1,6 +1,6 @@
 package com.jim.repository;
 
-import com.jim.entity.Entity;
+import com.jim.entity.IEntity;
 import org.hibernate.criterion.Order;
 
 import java.io.Serializable;
@@ -10,7 +10,7 @@ import java.util.Collection;
  * Created by jim on 2017/3/23.
  * This class is ...
  */
-public interface BaseJPARepository<T extends Entity, ID extends Serializable> {
+public interface IBaseJPARepository<T extends IEntity, ID extends Serializable> {
 	void setupEntityClass(Class clazz);
 	T insert(T object);
 	T update(T object);

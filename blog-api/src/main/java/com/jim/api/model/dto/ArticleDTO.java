@@ -1,4 +1,4 @@
-package com.jim.api.dto;
+package com.jim.api.model.dto;
 
 import java.sql.Timestamp;
 

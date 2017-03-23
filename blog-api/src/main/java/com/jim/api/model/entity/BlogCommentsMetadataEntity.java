@@ -1,4 +1,4 @@
-package com.jim.api.entities.blog;
+package com.jim.api.model.entity;
 
 import javax.persistence.*;
 
@@ -7,10 +7,10 @@ import javax.persistence.*;
  * This class is ...
  */
 @Entity
-@Table(name = "users_metadata", schema = "blog", catalog = "")
-public class BlogUsersMetadataEntity {
+@Table(name = "comments_metadata", schema = "blog", catalog = "")
+public class BlogCommentsMetadataEntity {
 	private long id;
-	private long userId;
+	private long commentId;
 	private String key;
 	private String value;
 
@@ -25,13 +25,13 @@ public class BlogUsersMetadataEntity {
 	}
 
 	@Basic
-	@Column(name = "user_id", nullable = false)
-	public long getUserId() {
-		return userId;
+	@Column(name = "commentId", nullable = false)
+	public long getCommentId() {
+		return commentId;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
+	public void setCommentId(long commentId) {
+		this.commentId = commentId;
 	}
 
 	@Basic
@@ -59,10 +59,10 @@ public class BlogUsersMetadataEntity {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 
-		BlogUsersMetadataEntity that = (BlogUsersMetadataEntity) o;
+		BlogCommentsMetadataEntity that = (BlogCommentsMetadataEntity) o;
 
 		if (id != that.id) return false;
-		if (userId != that.userId) return false;
+		if (commentId != that.commentId) return false;
 		if (key != null ? !key.equals(that.key) : that.key != null) return false;
 		if (value != null ? !value.equals(that.value) : that.value != null) return false;
 
@@ -72,7 +72,7 @@ public class BlogUsersMetadataEntity {
 	@Override
 	public int hashCode() {
 		int result = (int) (id ^ (id >>> 32));
-		result = 31 * result + (int) (userId ^ (userId >>> 32));
+		result = 31 * result + (int) (commentId ^ (commentId >>> 32));
 		result = 31 * result + (key != null ? key.hashCode() : 0);
 		result = 31 * result + (value != null ? value.hashCode() : 0);
 		return result;

@@ -1,7 +1,7 @@
 package com.jim.repository.impl;
 
-import com.jim.entity.Entity;
-import com.jim.repository.BaseJPARepository;
+import com.jim.entity.IEntity;
+import com.jim.repository.IBaseJPARepository;
 import org.hibernate.Criteria;
 import org.hibernate.FlushMode;
 import org.hibernate.Session;
@@ -17,7 +17,7 @@ import java.util.Collection;
  * Created by jim on 2017/3/23.
  * This class is ...
  */
-public abstract class BaseHibernateJPARepository<T extends Entity, ID extends Serializable> implements BaseJPARepository<T, ID> {
+public abstract class BaseHibernateJPARepository<T extends IEntity, ID extends Serializable> implements IBaseJPARepository<T, ID> {
 	@Autowired
 	protected SessionFactory sessionFactory;
 
