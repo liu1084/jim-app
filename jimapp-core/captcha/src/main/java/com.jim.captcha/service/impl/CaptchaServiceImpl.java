@@ -10,12 +10,12 @@
 
 package com.jim.captcha.service.impl;
 
-
-import com.jim.captcha.color.RandomColorFactory;
-import com.jim.captcha.encoder.EncoderHelper;
-import com.jim.captcha.service.Captcha;
-import com.jim.captcha.service.ConfigurableCaptchaService;
-import com.jim.service.CaptchaService;
+import com.jim.captcha.core.color.RandomColorFactory;
+import com.jim.captcha.core.encoder.EncoderHelper;
+import com.jim.captcha.core.predefined.*;
+import com.jim.captcha.core.service.Captcha;
+import com.jim.captcha.core.service.ConfigurableCaptchaService;
+import com.jim.captcha.service.JimCaptchaService;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,7 +35,7 @@ import java.util.UUID;
  * This class is ...
  */
 @Service
-public class CaptchaServiceImpl implements CaptchaService {
+public class CaptchaServiceImpl implements JimCaptchaService {
     @Autowired
     private ConfigurableCaptchaService configurableCaptchaService;
 

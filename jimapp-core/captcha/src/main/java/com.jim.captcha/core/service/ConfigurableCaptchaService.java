@@ -9,12 +9,12 @@
  */
 package com.jim.captcha.core.service;
 
-import com.jim.captcha.background.SingleColorBackgroundFactory;
-import com.jim.captcha.color.SingleColorFactory;
-import com.jim.captcha.font.RandomFontFactory;
-import com.jim.captcha.predefined.CurvesRippleFilterFactory;
-import com.jim.captcha.renderer.BestFitTextRenderer;
-import com.jim.captcha.word.AdaptiveRandomWordFactory;
+import com.jim.captcha.core.background.SingleColorBackgroundFactory;
+import com.jim.captcha.core.color.SingleColorFactory;
+import com.jim.captcha.core.font.RandomFontFactory;
+import com.jim.captcha.core.predefined.CurvesRippleFilterFactory;
+import com.jim.captcha.core.renderer.BestFitTextRenderer;
+import com.jim.captcha.core.word.AdaptiveRandomWordFactory;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -9,8 +9,8 @@
  */
 package com.jim.captcha.core.library;
 
-import com.jim.captcha.color.ColorFactory;
-import com.jim.captcha.color.SingleColorFactory;
+import com.jim.captcha.core.color.ColorFactory;
+import com.jim.captcha.core.color.SingleColorFactory;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

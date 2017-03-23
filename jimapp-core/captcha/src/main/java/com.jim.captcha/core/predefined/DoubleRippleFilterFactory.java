@@ -9,8 +9,8 @@
  */
 package com.jim.captcha.core.predefined;
 
-import com.jim.captcha.filter.AbstractFilterFactory;
-import com.jim.captcha.library.DoubleRippleImageOp;
+import com.jim.captcha.core.filter.AbstractFilterFactory;
+import com.jim.captcha.core.library.DoubleRippleImageOp;
 
 import java.awt.image.BufferedImageOp;
 import java.util.ArrayList;

@@ -10,7 +10,8 @@
 package com.jim.captcha.core.predefined;
 
 
-import com.jim.captcha.library.MarbleImageOp;
+
+import com.jim.captcha.core.library.MarbleImageOp;
 
 import java.awt.image.BufferedImageOp;
 import java.util.ArrayList;

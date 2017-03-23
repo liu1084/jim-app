@@ -8,9 +8,9 @@
  * THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.jim.captcha.controller;
+package com.jim.web.controllers;
 
-import com.jim.captcha.service.CaptchaService;
+import com.jim.captcha.service.JimCaptchaService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,9 +28,9 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping(value = "/captcha", produces = "application/json")
-public class CaptchaController {
+public class CaptchaController extends WebBaseController {
 	@Autowired
-	CaptchaService captchaService;
+	JimCaptchaService captchaService;
 
 	@Value("${captcha.directory}")
 	String path;
@@ -43,7 +43,7 @@ public class CaptchaController {
 		httpServletRequest.getSession().setAttribute("captchaChallenge", captchaService.getWord());
 		jsonObject = new JSONObject();
 		jsonObject.put("fileName", captchaService.getFile());
-        jsonObject.put("text", captchaService.getWord());
+        //jsonObject.put("text", captchaService.getWord());
 		jsonObject.put("url", this.getCaptchaURL(httpServletRequest) + captchaService.getFile());
 		return jsonObject.toString();
 	}

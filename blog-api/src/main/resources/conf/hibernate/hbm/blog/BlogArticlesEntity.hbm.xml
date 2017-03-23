@@ -48,9 +48,9 @@
             <column name="updated_at" sql-type="datetime"/>
         </property>
         <!-- one to many relationship-->
-        <set name="id">
-            <key column="article_id" />
-            <one-to-many class="com.jim.api.entities.blog.BlogCommentsEntity"/>
-        </set>
+        <!--<set name="id">-->
+            <!--<key column="article_id" />-->
+            <!--<one-to-many class="com.jim.api.entities.blog.BlogCommentsEntity"/>-->
+        <!--</set>-->
     </class>
 </hibernate-mapping>

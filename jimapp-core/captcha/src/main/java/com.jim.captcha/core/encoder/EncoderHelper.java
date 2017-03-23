@@ -9,8 +9,9 @@
  */
 package com.jim.captcha.core.encoder;
 
-import com.jim.captcha.service.Captcha;
-import com.jim.captcha.service.CaptchaService;
+
+import com.jim.captcha.core.service.Captcha;
+import com.jim.captcha.core.service.CaptchaService;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;

@@ -17,7 +17,7 @@ import java.io.IOException;
  * Created by Jim on 2016/5/18.
  * This class is ...
  */
-public interface CaptchaService extends BaseService {
+public interface JimCaptchaService extends BaseService {
 	void generateImage() throws IOException;
 	boolean validate(String word);
 	String getFile();

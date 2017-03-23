@@ -10,7 +10,8 @@
 package com.jim.captcha.core.predefined;
 
 
-import com.jim.captcha.library.DiffuseImageOp;
+
+import com.jim.captcha.core.library.DiffuseImageOp;
 
 import java.awt.image.BufferedImageOp;
 import java.util.ArrayList;

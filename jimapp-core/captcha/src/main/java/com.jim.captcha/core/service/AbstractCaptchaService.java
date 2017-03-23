@@ -9,13 +9,13 @@
  */
 package com.jim.captcha.core.service;
 
-import com.jim.captcha.background.BackgroundFactory;
-import com.jim.captcha.color.ColorFactory;
-import com.jim.captcha.filter.FilterFactory;
-import com.jim.captcha.font.FontFactory;
-import com.jim.captcha.renderer.TextRenderer;
-import com.jim.captcha.service.CaptchaService;
-import com.jim.captcha.word.WordFactory;
+
+import com.jim.captcha.core.background.BackgroundFactory;
+import com.jim.captcha.core.color.ColorFactory;
+import com.jim.captcha.core.filter.FilterFactory;
+import com.jim.captcha.core.font.FontFactory;
+import com.jim.captcha.core.renderer.TextRenderer;
+import com.jim.captcha.core.word.WordFactory;
 
 import java.awt.image.BufferedImage;
 
