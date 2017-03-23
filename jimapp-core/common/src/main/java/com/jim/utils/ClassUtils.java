@@ -1,4 +1,4 @@
-package com.neusoft.utf.portal.execute.utils;
+package com.jim.utils;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;

@@ -1,5 +1,6 @@
 package com.jim.web.controllers;
 
+import com.jim.controllers.BaseController;
 import com.jim.web.exception.ResourceNotFoundException;
 import com.jim.web.exception.ServiceFaultHandle;
 import org.slf4j.Logger;
@@ -14,9 +15,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * This class is ...
  */
 @Controller
-public class WebBaseController {
-	private final Logger logger = LoggerFactory.getLogger(WebBaseController.class);
-
+public class WebBaseController extends BaseController {
 	@ExceptionHandler(ResourceNotFoundException.class)
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public String handleResourceNotFoundException(){

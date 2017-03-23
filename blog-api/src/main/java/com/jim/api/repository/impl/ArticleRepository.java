@@ -1,7 +1,9 @@
-package com.jim.api.dao.impl;
+package com.jim.api.repository.impl;
 
-import com.jim.api.dao.IArticleDAO;
+import com.jim.api.repository.IArticleRepository;
+import com.jim.api.dto.ArticleDTO;
 import com.jim.api.entities.blog.BlogArticlesEntity;
+import com.jim.repository.impl.BaseHibernateJPARepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +17,12 @@ import java.util.List;
  * This class is ...
  */
 @Repository
-public class ArticleDAO implements IArticleDAO {
+public class ArticleRepository extends BaseHibernateJPARepository<BlogArticlesEntity, Long> implements IArticleRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Transactional
-	public void save(BlogArticlesEntity articlesEntity) {
+	public void save(ArticleDTO articlesEntity) {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(articlesEntity);
 	}
@@ -33,9 +35,15 @@ public class ArticleDAO implements IArticleDAO {
 	}
 
 	@Transactional
-	public List getArticleById(long id) {
+	public List<BlogArticlesEntity> getArticleById(long id) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "FROM BlogArticlesEntity AS t1 WHERE t1.id=?";
 		return session.createQuery(hql).setParameter(0, id).list();
+	}
+
+	@Override
+	public void delete(long id) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "";
 	}
 }

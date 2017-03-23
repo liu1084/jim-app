@@ -24,7 +24,7 @@
 				async: async || false,
 				data: data ? data : {},
 				type: type ? type : 'POST',
-				contentType: "application/json; charset=utf-8",
+				contentType: "application/gson; charset=utf-8",
 				headers: $.extend({}, headers, {ajaxRequest: true}),
 				success: function (dc) {
 					_this.deferred.resolve(dc);
@@ -77,9 +77,9 @@
 				type: "post",
 				url: options.url,
 				global: options.global,
-				contentType: 'application/json',
+				contentType: 'application/gson',
 				data: JSON.stringify(options.data),
-				dataType: "json",
+				dataType: "gson",
 				async: options.async,
 				success: function (json) {
 					options.callback(json);

@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         // Metadata.
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON('package.gson'),
         clean: ['dist/'],
         less: {
             compileCore: {

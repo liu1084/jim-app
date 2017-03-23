@@ -14,6 +14,7 @@ import com.jim.captcha.service.JimCaptchaService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,7 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping(value = "/captcha", produces = "application/json")
+@PropertySource(value = "classpath:webapp.properties", ignoreResourceNotFound = true)
 public class CaptchaController extends WebBaseController {
 	@Autowired
 	JimCaptchaService captchaService;
@@ -60,7 +62,7 @@ public class CaptchaController extends WebBaseController {
 	@RequestMapping(value = "/challenge/{challenge}", method = RequestMethod.GET)
 	public String validate(@PathVariable String challenge, HttpServletRequest httpServletRequest) {
 		jsonObject = new JSONObject();
-		jsonObject.put("response", httpServletRequest.getSession().getAttribute("captchaChallenge").toString().compareToIgnoreCase(challenge) == 0);
+		jsonObject.put("result", httpServletRequest.getSession().getAttribute("captchaChallenge").toString().compareToIgnoreCase(challenge) == 0);
 		return jsonObject.toString();
 	}
 }

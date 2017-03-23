@@ -17,8 +17,11 @@ import com.jim.captcha.core.service.Captcha;
 import com.jim.captcha.core.service.ConfigurableCaptchaService;
 import com.jim.captcha.service.JimCaptchaService;
 import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
@@ -35,19 +38,21 @@ import java.util.UUID;
  * This class is ...
  */
 @Service
+@PropertySource("classpath:captcha.properties")
 public class CaptchaServiceImpl implements JimCaptchaService {
-    @Autowired
-    private ConfigurableCaptchaService configurableCaptchaService;
+	private static final Logger logger = LoggerFactory.getLogger(CaptchaServiceImpl.class);
+	@Autowired
+	private ConfigurableCaptchaService configurableCaptchaService;
 
-    @Autowired
-    private RandomColorFactory randomColorFactory;
+	@Autowired
+	private RandomColorFactory randomColorFactory;
 
-    @Autowired
-    private ResourceLoader resourceLoader;
+	@Autowired
+	private ResourceLoader resourceLoader;
 
-    @Value("${captcha.destination}")
-    private String path;
-    private String file;
+	@Value("${captcha.destination}")
+	private String path;
+	private String file;
 	private String word;
 
 
@@ -56,9 +61,9 @@ public class CaptchaServiceImpl implements JimCaptchaService {
 	}
 
 	@Override
-    public String getWord() {
-        return this.word;
-    }
+	public String getWord() {
+		return this.word;
+	}
 
 	@Override
 	public String getCaptchaUrl(HttpServletRequest req) {
@@ -71,7 +76,7 @@ public class CaptchaServiceImpl implements JimCaptchaService {
 		String queryString = req.getQueryString();          // d=789
 
 		// Reconstruct original requesting URL
-		StringBuffer url =  new StringBuffer();
+		StringBuffer url = new StringBuffer();
 		url.append(scheme).append("://").append(serverName);
 
 		if ((serverPort != 80) && (serverPort != 443)) {
@@ -91,69 +96,70 @@ public class CaptchaServiceImpl implements JimCaptchaService {
 
 
 	@Override
-	public void createDestination(){
+	public void createDestination() {
 		try {
 			File file = new File(this.path);
-			if (!file.isDirectory() || !file.exists()){
+			if (!file.isDirectory() || !file.exists()) {
 				FileUtils.forceMkdir(file);
 			}
-		}catch (SecurityException ex){
+		} catch (SecurityException ex) {
 			ex.fillInStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-    @Override
-    public boolean validate(String word) {
-        return false;
-    }
+	@Override
+	public boolean validate(String word) {
+		return false;
+	}
 
-    @Override
-    public void generateImage() {
+	@Override
+	public void generateImage() {
 		this.createDestination();
 
-        randomColorFactory.setMin(new Color(10, 10, 15));
-        randomColorFactory.setMax(new Color(255, 30, 10));
-        configurableCaptchaService.setColorFactory(randomColorFactory);
-        int counter = new Random().nextInt() % 5;
+		randomColorFactory.setMin(new Color(10, 10, 15));
+		randomColorFactory.setMax(new Color(255, 30, 10));
+		configurableCaptchaService.setColorFactory(randomColorFactory);
+		int counter = new Random().nextInt() % 5;
 
-        switch (counter) {
-            case 0:
-                configurableCaptchaService.setFilterFactory(new CurvesRippleFilterFactory(configurableCaptchaService.getColorFactory()));
-                break;
-            case 1:
-                configurableCaptchaService.setFilterFactory(new MarbleRippleFilterFactory());
-                break;
-            case 2:
-                configurableCaptchaService.setFilterFactory(new DoubleRippleFilterFactory());
-                break;
-            case 3:
-                configurableCaptchaService.setFilterFactory(new WobbleRippleFilterFactory());
-                break;
-            case 4:
-                configurableCaptchaService.setFilterFactory(new DiffuseRippleFilterFactory());
-                break;
+		switch (counter) {
+			case 0:
+				configurableCaptchaService.setFilterFactory(new CurvesRippleFilterFactory(configurableCaptchaService.getColorFactory()));
+				break;
+			case 1:
+				configurableCaptchaService.setFilterFactory(new MarbleRippleFilterFactory());
+				break;
+			case 2:
+				configurableCaptchaService.setFilterFactory(new DoubleRippleFilterFactory());
+				break;
+			case 3:
+				configurableCaptchaService.setFilterFactory(new WobbleRippleFilterFactory());
+				break;
+			case 4:
+				configurableCaptchaService.setFilterFactory(new DiffuseRippleFilterFactory());
+				break;
 			default:
 				configurableCaptchaService.setFilterFactory(new CurvesRippleFilterFactory(configurableCaptchaService.getColorFactory()));
-        }
-        FileOutputStream fos = null;
+		}
+		FileOutputStream fos = null;
 
-        try {
-            this.file = UUID.randomUUID().toString() + ".png";
-            File tmp = new File(this.path + "/" + this.file);
-            fos = new FileOutputStream(tmp);
-            Captcha result = EncoderHelper.getChallangeAndWriteImage(configurableCaptchaService, "png", fos);
+		try {
+			this.file = UUID.randomUUID().toString() + ".png";
+			File tmp = new File(this.path + "/" + this.file);
+			logger.debug(tmp.getAbsolutePath().toString());
+			fos = new FileOutputStream(tmp);
+			Captcha result = EncoderHelper.getChallangeAndWriteImage(configurableCaptchaService, "png", fos);
 			this.setWord(result.getChallenge());
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+			fos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-    }
+	}
 
-    @Override
-    public String getFile() {
-        return this.file;
-    }
+	@Override
+	public String getFile() {
+		return this.file;
+	}
 }

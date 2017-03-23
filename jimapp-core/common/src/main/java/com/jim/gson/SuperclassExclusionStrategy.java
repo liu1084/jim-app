@@ -1,4 +1,4 @@
-package com.jim.json;
+package com.jim.gson;
 
 import com.google.gson.ExclusionStrategy;
 import com.google.gson.FieldAttributes;
