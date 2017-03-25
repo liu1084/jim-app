@@ -12,9 +12,9 @@ import java.util.Collection;
  */
 public interface IBaseService<T extends IEntity, ID extends Serializable> {
 	void setupService();
-	T insert(T object);
-	T update(T object);
-	void delete(T object);
-	T findById(ID id);
-	Collection<T> findAllByPage(int pageNum, int countPerPage, Order order);
+	T insert(T object) throws Exception;
+	T update(T object) throws Exception;
+	void delete(T object) throws Exception;
+	T findById(ID id) throws Exception;
+	Collection<T> findAllByPage(int pageNum, int countPerPage, Order order) throws Exception;
 }

@@ -1,7 +1,7 @@
 package com.jim.api.model.repository.impl;
 
 import com.jim.api.model.dto.ArticleDTO;
-import com.jim.api.model.entity.BlogArticlesIEntity;
+import com.jim.api.model.entity.BlogArticlesEntity;
 import com.jim.api.model.repository.IArticleRepository;
 import com.jim.repository.impl.BaseHibernateJPARepository;
 import org.hibernate.Session;
@@ -20,7 +20,7 @@ import java.util.List;
  * This class is ...
  */
 @Repository
-public class ArticleRepository extends BaseHibernateJPARepository<BlogArticlesIEntity, Long> implements IArticleRepository {
+public class ArticleRepository extends BaseHibernateJPARepository implements IArticleRepository {
 	private static final Logger logger = LoggerFactory.getLogger(ArticleRepository.class);
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -37,24 +37,26 @@ public class ArticleRepository extends BaseHibernateJPARepository<BlogArticlesIE
 	}
 
 	@Transactional
-	public List read() {
+	public List<BlogArticlesEntity> read() {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "FROM BlogArticlesIEntity";
+		String hql = "FROM BlogArticlesEntity";
 		return session.createQuery(hql).list();
 	}
 
 	@Transactional
-	public List<BlogArticlesIEntity> getArticleById(long id) {
+	public BlogArticlesEntity getArticleById(long id) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "FROM BlogArticlesIEntity AS t1 WHERE t1.id=?";
-		return session.createQuery(hql).setParameter(0, id).list();
+		String hql = "FROM BlogArticlesEntity AS t1 WHERE t1.id=:id";
+		BlogArticlesEntity entity = (BlogArticlesEntity) session.createQuery(hql).setParameter("id", id).uniqueResult();
+		return entity;
 	}
 
 	@Override
 	@Transactional
 	public void delete(long id) {
 		Session session = sessionFactory.getCurrentSession();
-		BlogArticlesIEntity entity = getArticleById(id).get(0);
-		session.delete(entity);
+		BlogArticlesEntity entity = getArticleById(id);
+		entity.setStatus(BlogArticlesEntity.ArticleStatus.DELETE);
+		session.update(entity);
 	}
 }

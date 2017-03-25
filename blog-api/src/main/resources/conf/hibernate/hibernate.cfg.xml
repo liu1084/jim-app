@@ -14,7 +14,7 @@
         <!--<property name="connection.username">root</property>-->
 
         <mapping resource="conf/hibernate/hbm/blog/BlogArticlesEntity.hbm.xml"/>
-        <mapping class="com.jim.api.model.entity.BlogArticlesIEntity"/>
+        <mapping class="com.jim.api.model.entity.BlogArticlesEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogArticlesMetadataEntity.hbm.xml"/>
         <mapping class="com.jim.api.model.entity.BlogArticlesMetadataEntity"/>
         <mapping resource="conf/hibernate/hbm/blog/BlogCommentsEntity.hbm.xml"/>

@@ -1,6 +1,7 @@
 package com.jim.api.controllers;
 
 import com.jim.api.model.dto.ArticleDTO;
+import com.jim.api.model.entity.BlogArticlesEntity;
 import com.jim.controllers.BaseController;
 import com.jim.api.service.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,20 +18,18 @@ import java.util.List;
 @RequestMapping("/article")
 public class ArticleController extends BaseController {
 	@Autowired
-	private IArticleService articleBO;
+	private IArticleService articleService;
 
 	@RequestMapping(value= {"", "/"})
 	public String index(){
-		List articlesEntityList = articleBO.read();
+		List articlesEntityList = articleService.read();
 		return gson.toJson(articlesEntityList);
 	}
 
 	@RequestMapping(value = "/{id}")
 	public String getArticleById(@PathVariable Long id){
-		List articles = new ArrayList();
-		if (id == null) return gson.toJson(articles);
-		articles = articleBO.getArticleById(id);
-		return gson.toJson(articles);
+		BlogArticlesEntity article = articleService.getArticleById(id);;
+		return gson.toJson(article);
 	}
 
 	@RequestMapping(value = {"", "/"}, method = RequestMethod.POST, headers = {JSON_API_CONTENT_HEADER})

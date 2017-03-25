@@ -7,18 +7,17 @@ import java.sql.Timestamp;
  * This class is ...
  */
 public class ArticleDTO {
-	private long id;
 	private String title;
 	private String content;
 	private String background;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
+	private long userId;
+	private String status;
+	private String password;
+	private int sticky;
+	private byte rating;
+	private long parent;
+	private String commentStatus;
+	private int commentCount;
 
 	public String getTitle() {
 		return title;
@@ -108,30 +107,4 @@ public class ArticleDTO {
 		this.commentCount = commentCount;
 	}
 
-	public Timestamp getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Timestamp getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Timestamp updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-
-	private long userId;
-	private String status;
-	private String password;
-	private int sticky;
-	private byte rating;
-	private long parent;
-	private String commentStatus;
-	private int commentCount;
-	private Timestamp createdAt;
-	private Timestamp updatedAt;
 }

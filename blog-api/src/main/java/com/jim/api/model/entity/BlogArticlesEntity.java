@@ -6,7 +6,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.sql.Timestamp;
 
 /**
  * Created by jim on 2017/3/21.
@@ -14,7 +13,8 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "articles", schema = "blog")
-public class BlogArticlesIEntity extends JPAIEntity {
+public class BlogArticlesEntity extends JPAIEntity<Long> {
+	private long id;
 	private String title;
 	private String content;
 	private String background;
@@ -23,7 +23,7 @@ public class BlogArticlesIEntity extends JPAIEntity {
 	private String password;
 	private int sticky;
 	private byte rating;
-	private long parent;
+	private int parent;
 	private ArticleCommentStatus commentStatus;
 	private int commentCount;
 
@@ -45,6 +45,15 @@ public class BlogArticlesIEntity extends JPAIEntity {
 
 	public enum ArticleCommentStatus{
 		CLOSE, OPEN
+	}
+
+	@Id
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	@Basic
@@ -132,13 +141,13 @@ public class BlogArticlesIEntity extends JPAIEntity {
 		this.rating = rating;
 	}
 
-	@Column(name = "parent", nullable = false)
-	@ManyToOne(fetch = FetchType.EAGER)
-	public long getParent() {
+	@Column(name = "parent")
+	@Basic
+	public int getParent() {
 		return parent;
 	}
 
-	public void setParent(long parent) {
+	public void setParent(int parent) {
 		this.parent = parent;
 	}
 
@@ -164,7 +173,7 @@ public class BlogArticlesIEntity extends JPAIEntity {
 
 	@Override
 	public String toString() {
-		return "BlogArticlesIEntity{" +
+		return "BlogArticlesEntity{" +
 				"title='" + title + '\'' +
 				", content='" + content + '\'' +
 				", background='" + background + '\'' +
@@ -182,9 +191,9 @@ public class BlogArticlesIEntity extends JPAIEntity {
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (!(o instanceof BlogArticlesIEntity)) return false;
+		if (!(o instanceof BlogArticlesEntity)) return false;
 
-		BlogArticlesIEntity that = (BlogArticlesIEntity) o;
+		BlogArticlesEntity that = (BlogArticlesEntity) o;
 
 		if (getUserId() != that.getUserId()) return false;
 		if (getSticky() != that.getSticky()) return false;
@@ -201,19 +210,4 @@ public class BlogArticlesIEntity extends JPAIEntity {
 		return getCommentStatus() == that.getCommentStatus();
 	}
 
-	@Override
-	public int hashCode() {
-		int result = getTitle().hashCode();
-		result = 31 * result + getContent().hashCode();
-		result = 31 * result + (getBackground() != null ? getBackground().hashCode() : 0);
-		result = 31 * result + (int) (getUserId() ^ (getUserId() >>> 32));
-		result = 31 * result + (getStatus() != null ? getStatus().hashCode() : 0);
-		result = 31 * result + (getPassword() != null ? getPassword().hashCode() : 0);
-		result = 31 * result + getSticky();
-		result = 31 * result + (int) getRating();
-		result = 31 * result + (int) (getParent() ^ (getParent() >>> 32));
-		result = 31 * result + (getCommentStatus() != null ? getCommentStatus().hashCode() : 0);
-		result = 31 * result + getCommentCount();
-		return result;
-	}
 }

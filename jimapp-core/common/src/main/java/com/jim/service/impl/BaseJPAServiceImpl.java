@@ -17,23 +17,23 @@ public abstract class BaseJPAServiceImpl<T extends IEntity, ID extends Serializa
 	protected Class<T> clazz;
 
 	@Override
-	public T insert(T object) {
-		return IBaseJPARepository.insert(object);
+	public T insert(T object) throws Exception {
+		return baseJpaRepository.insert(object);
 	}
 
 	@Override
 	public T update(T object) {
-		return IBaseJPARepository.update(object);
+		return baseJpaRepository.update(object);
 	}
 
 	@Override
 	public void delete(T object) {
-		IBaseJPARepository.delete(object);
+		baseJpaRepository.delete(object);
 	}
 
 	@Override
 	public T findById(ID id) {
-		return IBaseJPARepository.findById(id);
+		return baseJpaRepository.findById(id);
 	}
 
 	@Override

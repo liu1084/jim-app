@@ -1,5 +1,6 @@
 package com.jim.api.service.impl;
 
+import com.jim.api.model.entity.BlogArticlesEntity;
 import com.jim.api.service.IArticleService;
 import com.jim.api.model.repository.IArticleRepository;
 import com.jim.api.model.dto.ArticleDTO;
@@ -24,27 +25,6 @@ public class ArticleService extends BaseJPAServiceImpl implements IArticleServic
 	private IArticleRepository articleRepository;
 
 	@Override
-	public void save(ArticleDTO articlesEntity) {
-		articleRepository.save(articlesEntity);
-	}
-
-	@Override
-	public List read() {
-		return articleRepository.read();
-	}
-
-	@Override
-	public List getArticleById(long id) {
-		return articleRepository.getArticleById(id);
-	}
-
-	@Override
-	public void delete(long id) {
-		ArticleDTO articleDTO = (ArticleDTO) getArticleById(id).get(0);
-
-	}
-
-	@Override
 	@PostConstruct
 	public void setupService() {
 		logger.info("setting up categoryService...");
@@ -53,4 +33,26 @@ public class ArticleService extends BaseJPAServiceImpl implements IArticleServic
 		this.baseJpaRepository.setupEntityClass(ArticleService.class);
 		logger.info("categoryService created...");
 	}
+
+	@Override
+	public void save(ArticleDTO articlesEntity) {
+		articleRepository.save(articlesEntity);
+	}
+
+	@Override
+	public List<BlogArticlesEntity> read() {
+		return articleRepository.read();
+	}
+
+	@Override
+	public BlogArticlesEntity getArticleById(long id) {
+		return articleRepository.getArticleById(id);
+	}
+
+	@Override
+	public void delete(long id) {
+		BlogArticlesEntity entity = articleRepository.getArticleById(id);
+		articleRepository.delete(entity);
+	}
+
 }

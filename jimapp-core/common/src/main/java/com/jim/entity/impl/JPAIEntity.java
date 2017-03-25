@@ -10,7 +10,6 @@ import java.util.Date;
  * This class is ...
  */
 public class JPAIEntity<T extends Serializable> implements IEntity<T> {
-	protected T id;
 	protected Date createdAt;
 	protected Date updatedAt;
 
@@ -32,14 +31,6 @@ public class JPAIEntity<T extends Serializable> implements IEntity<T> {
 		}
 
 		return this;
-	}
-
-	public T getId() {
-		return id;
-	}
-
-	public void setId(T id) {
-		this.id = id;
 	}
 
 	public Date getCreatedAt() {

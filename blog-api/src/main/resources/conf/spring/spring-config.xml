@@ -29,7 +29,7 @@
         <property name="systemPropertiesMode" value="2"/>
     </bean>
 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" destroy-method="c">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${webapp.datasource.driverClass}"/>
         <property name="url" value="${webapp.ebook.datasource.jdbcUrl}"/>
         <property name="username" value="${webapp.datasource.user}"/>
@@ -44,7 +44,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <list>
-                <value>com.jim.api.entities</value>
+                <value>com.jim.api.model.entity</value>
             </list>
         </property>
         <property name="mappingDirectoryLocations">
