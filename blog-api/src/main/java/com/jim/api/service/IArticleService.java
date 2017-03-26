@@ -2,6 +2,7 @@ package com.jim.api.service;
 
 import com.jim.api.model.dto.ArticleDTO;
 import com.jim.api.model.entity.BlogArticlesEntity;
+import com.jim.response.APIResponse;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
  * This class is ...
  */
 public interface IArticleService {
-	void save(ArticleDTO articlesEntity);
+	APIResponse save(ArticleDTO articlesEntity);
 	List<BlogArticlesEntity> read();
 	BlogArticlesEntity getArticleById(long id);
 	void delete(long id);

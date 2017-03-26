@@ -27,9 +27,10 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 	private ArticleCommentStatus commentStatus;
 	private int commentCount;
 
-	public enum ArticleStatus{
-		PRIVATE(1), PUBLIC(2), DRAFT(3), DELETE(0);
+	public enum ArticleStatus {
+		DELETE(0), PRIVATE(1), PUBLIC(2), DRAFT(3);
 		private int status;
+
 		ArticleStatus(int i) {
 			this.status = i;
 		}
@@ -43,7 +44,7 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 		}
 	}
 
-	public enum ArticleCommentStatus{
+	public enum ArticleCommentStatus {
 		CLOSE(0), OPEN(1);
 
 		public int getStatus() {
@@ -55,6 +56,7 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 		}
 
 		private int status;
+
 		ArticleCommentStatus(int i) {
 			this.status = i;
 		}

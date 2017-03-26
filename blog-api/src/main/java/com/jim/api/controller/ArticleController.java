@@ -1,11 +1,16 @@
 package com.jim.api.controller;
 
 import com.jim.api.model.dto.ArticleDTO;
+import com.jim.api.model.dto.vilidator.ArticleDTOValidator;
 import com.jim.api.model.entity.BlogArticlesEntity;
 import com.jim.controllers.BaseController;
 import com.jim.api.service.IArticleService;
+import com.jim.response.APIResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +25,12 @@ public class ArticleController extends BaseController {
 	@Autowired
 	private IArticleService articleService;
 
+	@Autowired
+	private ArticleDTOValidator validator;
+
 	@RequestMapping(value = "/create", method = RequestMethod.POST, headers = {JSON_API_CONTENT_HEADER})
-	public void save(@RequestBody ArticleDTO articleDTO){
-		articleService.save(articleDTO);
+	public APIResponse save(@RequestBody ArticleDTO articleDTO){
+		return articleService.save(articleDTO);
 	}
 
 	@RequestMapping(value= {"", "/"})

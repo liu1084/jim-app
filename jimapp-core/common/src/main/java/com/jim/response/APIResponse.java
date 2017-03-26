@@ -15,6 +15,11 @@ public class APIResponse {
 	Object result;
 	String time;
 	Long code;
+
+	public static final Integer RESPONSE_OK_CODE = 200;
+	public static final Integer RESPONSE_ERR_CODE = 500;
+	public static final Integer RESPONSE_EXCEPTION_CODE = 600;
+
 	public static class ExceptionAPIResponse extends APIResponse {
 		Object details;
 
@@ -52,18 +57,18 @@ public class APIResponse {
 	}
 
 	public static APIResponse toOkResponse(Object data) {
-		return toAPIResponse(data, 200);
+		return toAPIResponse(data, RESPONSE_OK_CODE);
 	}
 
 	public static APIResponse toErrorResponse(Object data) {
-		return toAPIResponse(data, 2001);
+		return toAPIResponse(data, RESPONSE_ERR_CODE);
 	}
 
 	public static ExceptionAPIResponse toExceptionResponse(String result, Object details) {
 		ExceptionAPIResponse response = new ExceptionAPIResponse();
 		response.setResult(result);
 		response.setDetails(details);
-		response.setCode(2001);
+		response.setCode(RESPONSE_EXCEPTION_CODE);
 		return response;
 	}
 
