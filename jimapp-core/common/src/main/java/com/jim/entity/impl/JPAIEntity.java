@@ -1,19 +1,25 @@
 package com.jim.entity.impl;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jim.entity.IEntity;
 
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Created by jim on 2017/3/23.
  * This class is ...
  */
-public class JPAIEntity<T extends Serializable> implements IEntity<T> {
+@MappedSuperclass
+public abstract class JPAIEntity<T extends Serializable> implements IEntity {
+	protected T id;
 	protected Date createdAt;
 	protected Date updatedAt;
 
-	public JPAIEntity(){
+	public JPAIEntity() {
 		createdAt = new Date();
 		updatedAt = new Date();
 	}
@@ -33,6 +39,20 @@ public class JPAIEntity<T extends Serializable> implements IEntity<T> {
 		return this;
 	}
 
+	@XmlElement(type = Objects.class)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public T getId() {
+		return id;
+	}
+
+	public void setId(T id){
+		this.id = id;
+	}
+
+	@JsonIgnore
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "created_at", nullable = false)
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -41,6 +61,9 @@ public class JPAIEntity<T extends Serializable> implements IEntity<T> {
 		this.createdAt = createdAt;
 	}
 
+	@JsonIgnore
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "updated_at", nullable = false)
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}

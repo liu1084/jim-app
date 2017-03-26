@@ -47,11 +47,11 @@
                 <value>com.jim.api.model.entity</value>
             </list>
         </property>
-        <property name="mappingDirectoryLocations">
-            <list>
-                <value>classpath:conf/**/hbm</value>
-            </list>
-        </property>
+        <!--<property name="mappingDirectoryLocations">-->
+            <!--<list>-->
+                <!--<value>classpath:conf/**/hbm</value>-->
+            <!--</list>-->
+        <!--</property>-->
         <property name="configLocation" value="classpath:conf/hibernate/hibernate.cfg.xml"/>
     </bean>
 

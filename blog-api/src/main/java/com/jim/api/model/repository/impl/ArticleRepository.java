@@ -40,7 +40,8 @@ public class ArticleRepository extends BaseHibernateJPARepository implements IAr
 	public List<BlogArticlesEntity> read() {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "FROM BlogArticlesEntity";
-		return session.createQuery(hql).list();
+		List<BlogArticlesEntity> result = (List<BlogArticlesEntity>)session.createQuery(hql).list();
+		return result;
 	}
 
 	@Transactional

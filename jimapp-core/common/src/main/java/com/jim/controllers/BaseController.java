@@ -16,9 +16,7 @@ public class BaseController {
 	protected final Logger logger = LoggerFactory.getLogger(BaseController.class);
 	private GsonBuilder gsonBuilder = new GsonBuilder()
 			.addDeserializationExclusionStrategy(new SuperclassExclusionStrategy())
-			.addSerializationExclusionStrategy(new SuperclassExclusionStrategy())
-			.excludeFieldsWithoutExposeAnnotation();
+			.addSerializationExclusionStrategy(new SuperclassExclusionStrategy());
 	protected Gson gson = gsonBuilder.create();
-
 	protected static final String JSON_API_CONTENT_HEADER = "Content-type=application/json";
 }

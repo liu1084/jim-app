@@ -7,33 +7,34 @@
     <session-factory>
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
+
         <!--<property name="current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>-->
         <!--<property name="connection.url">jdbc:mysql://localhost:3306/blog</property>-->
         <!--<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>-->
         <!--<property name="connection.password">livedoor2008</property>-->
         <!--<property name="connection.username">root</property>-->
 
-        <mapping resource="conf/hibernate/hbm/blog/BlogArticlesEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogArticlesEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogArticlesEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/BlogArticlesMetadataEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogArticlesMetadataEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogArticlesMetadataEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/BlogCommentsEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogCommentsEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogCommentsEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/BlogCommentsMetadataEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogCommentsMetadataEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogCommentsMetadataEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/BlogMigrationsEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogMigrationsEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogMigrationsEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/BlogRolesEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogRolesEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogRolesEntity"/>
         <!--<mapping resource="conf/hibernate/hbm/blog/BlogSessionsEntity.hbm.xml"/>-->
         <!--<mapping class="com.jim.api.entities.blog.BlogSessionsEntity"/>-->
-        <mapping resource="conf/hibernate/hbm/blog/BlogUserMetaEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogUserMetaEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogUserMetaEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/BlogUserRoleEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogUserRoleEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogUserRoleEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/BlogUsersEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogUsersEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogUsersEntity"/>
-        <mapping resource="conf/hibernate/hbm/blog/BlogUsersMetadataEntity.hbm.xml"/>
+        <!--<mapping resource="conf/hibernate/hbm/blog/BlogUsersMetadataEntity.hbm.xml"/>-->
         <mapping class="com.jim.api.model.entity.BlogUsersMetadataEntity"/>
     </session-factory>
 </hibernate-configuration>

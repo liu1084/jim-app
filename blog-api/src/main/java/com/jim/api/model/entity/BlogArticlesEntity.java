@@ -1,6 +1,7 @@
 package com.jim.api.model.entity;
 
 import com.jim.entity.impl.JPAIEntity;
+import org.hibernate.annotations.Generated;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -14,7 +15,6 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "articles", schema = "blog")
 public class BlogArticlesEntity extends JPAIEntity<Long> {
-	private long id;
 	private String title;
 	private String content;
 	private String background;
@@ -22,7 +22,7 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 	private ArticleStatus status;
 	private String password;
 	private int sticky;
-	private byte rating;
+	private int rating;
 	private int parent;
 	private ArticleCommentStatus commentStatus;
 	private int commentCount;
@@ -44,22 +44,27 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 	}
 
 	public enum ArticleCommentStatus{
-		CLOSE, OPEN
-	}
+		CLOSE(0), OPEN(1);
 
-	@Id
-	public long getId() {
-		return id;
-	}
+		public int getStatus() {
+			return status;
+		}
 
-	public void setId(long id) {
-		this.id = id;
+		public void setStatus(int status) {
+			this.status = status;
+		}
+
+		private int status;
+		ArticleCommentStatus(int i) {
+			this.status = i;
+		}
 	}
 
 	@Basic
 	@Column(name = "title", nullable = false, length = 255)
 	@NotNull
 	@NotBlank
+	@NotEmpty
 	public String getTitle() {
 		return title;
 	}
@@ -71,7 +76,6 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 	@Basic
 	@NotNull
 	@NotBlank
-	@NotEmpty
 	@Column(name = "content", nullable = false, length = -1)
 	public String getContent() {
 		return content;
@@ -132,17 +136,17 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 	}
 
 	@Basic
-	@Column(name = "rating", nullable = false)
-	public byte getRating() {
+	@Column(name = "rating")
+	public int getRating() {
 		return rating;
 	}
 
-	public void setRating(byte rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 
-	@Column(name = "parent")
 	@Basic
+	@JoinColumn(name = "parent")
 	public int getParent() {
 		return parent;
 	}

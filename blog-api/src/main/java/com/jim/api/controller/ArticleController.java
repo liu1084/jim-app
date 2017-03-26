@@ -1,4 +1,4 @@
-package com.jim.api.controllers;
+package com.jim.api.controller;
 
 import com.jim.api.model.dto.ArticleDTO;
 import com.jim.api.model.entity.BlogArticlesEntity;
@@ -19,6 +19,11 @@ import java.util.List;
 public class ArticleController extends BaseController {
 	@Autowired
 	private IArticleService articleService;
+
+	@RequestMapping(value = "/create", method = RequestMethod.POST, headers = {JSON_API_CONTENT_HEADER})
+	public void save(@RequestBody ArticleDTO articleDTO){
+		articleService.save(articleDTO);
+	}
 
 	@RequestMapping(value= {"", "/"})
 	public String index(){
