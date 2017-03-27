@@ -31,7 +31,7 @@ public class ArticleRepository extends BaseHibernateJPARepository implements IAr
 	}
 
 	@Transactional
-	public void save(ArticleDTO articlesEntity) {
+	public void save(BlogArticlesEntity articlesEntity) {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(articlesEntity);
 	}

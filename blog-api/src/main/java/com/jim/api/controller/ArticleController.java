@@ -3,6 +3,7 @@ package com.jim.api.controller;
 import com.jim.api.model.dto.ArticleDTO;
 import com.jim.api.model.dto.vilidator.ArticleDTOValidator;
 import com.jim.api.model.entity.BlogArticlesEntity;
+import com.jim.api.service.generator.ArticleInfoGenerator;
 import com.jim.controllers.BaseController;
 import com.jim.api.service.IArticleService;
 import com.jim.response.APIResponse;
@@ -29,8 +30,16 @@ public class ArticleController extends BaseController {
 	private ArticleDTOValidator validator;
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST, headers = {JSON_API_CONTENT_HEADER})
-	public APIResponse save(@RequestBody ArticleDTO articleDTO){
-		return articleService.save(articleDTO);
+	public APIResponse save(@ModelAttribute("article") ArticleDTO articleDTO, BindingResult result){
+		validator.validate(articleDTO, result);
+		if (result.hasErrors()){
+			return APIResponse.toErrorResponse(result);
+		}
+
+		BlogArticlesEntity entity = ArticleInfoGenerator.generate(articleDTO);
+		articleService.save(entity);
+		return APIResponse.toOkResponse(articleDTO);
+
 	}
 
 	@RequestMapping(value= {"", "/"})

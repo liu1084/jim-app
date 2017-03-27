@@ -4,6 +4,7 @@ import com.jim.entity.impl.JPAIEntity;
 import org.hibernate.annotations.Generated;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.omg.CORBA.PRIVATE_MEMBER;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -21,9 +22,9 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 	private long userId;
 	private ArticleStatus status;
 	private String password;
-	private int sticky;
+	private ArticleSticky sticky;
 	private int rating;
-	private int parent;
+	private int parent_id;
 	private ArticleCommentStatus commentStatus;
 	private int commentCount;
 
@@ -59,6 +60,22 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 
 		ArticleCommentStatus(int i) {
 			this.status = i;
+		}
+	}
+
+	public enum ArticleSticky{
+		STICKY(0), NORMAL(1);
+		private int sticky;
+		ArticleSticky(int i) {
+			this.sticky = i;
+		}
+
+		public int getSticky() {
+			return sticky;
+		}
+
+		public void setSticky(int sticky) {
+			this.sticky = sticky;
 		}
 	}
 
@@ -108,7 +125,7 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 	}
 
 	@Basic
-	@Column(name = "status", nullable = false, length = 30)
+	@Column(name = "status", nullable = false, length = 1)
 	public ArticleStatus getStatus() {
 		return status;
 	}
@@ -129,11 +146,11 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 
 	@Basic
 	@Column(name = "sticky", nullable = false)
-	public int getSticky() {
+	public ArticleSticky getSticky() {
 		return sticky;
 	}
 
-	public void setSticky(int sticky) {
+	public void setSticky(ArticleSticky sticky) {
 		this.sticky = sticky;
 	}
 
@@ -148,17 +165,17 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 	}
 
 	@Basic
-	@JoinColumn(name = "parent")
+	@Column(name = "parent_id")
 	public int getParent() {
-		return parent;
+		return parent_id;
 	}
 
 	public void setParent(int parent) {
-		this.parent = parent;
+		this.parent_id = parent;
 	}
 
 	@Basic
-	@Column(name = "comment_status", nullable = false, length = 30)
+	@Column(name = "comment_status", nullable = false, length = 1)
 	public ArticleCommentStatus getCommentStatus() {
 		return commentStatus;
 	}
@@ -188,7 +205,7 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 				", password='" + password + '\'' +
 				", sticky=" + sticky +
 				", rating=" + rating +
-				", parent=" + parent +
+				", parent=" + parent_id +
 				", commentStatus=" + commentStatus +
 				", commentCount=" + commentCount +
 				'}';

@@ -29,9 +29,6 @@ public class ArticleService extends BaseJPAServiceImpl implements IArticleServic
 	@Autowired
 	private IArticleRepository articleRepository;
 
-	@Autowired
-	private ArticleDTOValidator validator;
-
 	@Override
 	@PostConstruct
 	public void setupService() {
@@ -43,21 +40,11 @@ public class ArticleService extends BaseJPAServiceImpl implements IArticleServic
 	}
 
 	@Override
-	public APIResponse save(ArticleDTO articleDTO) {
+	public APIResponse save(BlogArticlesEntity articleDTO) {
 		BlogArticlesEntity entity = new BlogArticlesEntity();
 		articleRepository.save(articleDTO);
 		return APIResponse.toOkResponse(entity);
 	}
-
-	private APIResponse validDTO(@ModelAttribute("ArticleDTO") ArticleDTO articleDTO, BindingResult result, SessionStatus sessionStatus){
-		validator.validate(articleDTO, result);
-		if (result.hasErrors()){
-			return APIResponse.toErrorResponse(result);
-		}
-		sessionStatus.setComplete();
-		return APIResponse.toOkResponse(articleDTO);
-	}
-
 
 	@Override
 	public List<BlogArticlesEntity> read() {

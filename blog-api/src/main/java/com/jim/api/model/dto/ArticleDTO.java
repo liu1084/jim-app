@@ -15,7 +15,7 @@ public class ArticleDTO {
 	private String password;
 	private int sticky;
 	private byte rating;
-	private long parent;
+	private long parentId;
 	private String commentStatus;
 	private int commentCount;
 
@@ -84,11 +84,11 @@ public class ArticleDTO {
 	}
 
 	public long getParent() {
-		return parent;
+		return parentId;
 	}
 
-	public void setParent(long parent) {
-		this.parent = parent;
+	public void setParent(long parentId) {
+		this.parentId = parentId;
 	}
 
 	public String getCommentStatus() {

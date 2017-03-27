@@ -11,7 +11,7 @@ import java.util.List;
  * This class is ...
  */
 public interface IArticleRepository extends IBaseJPARepository {
-	void save(ArticleDTO articlesEntity);
+	void save(BlogArticlesEntity articlesEntity);
 	List<BlogArticlesEntity> read();
 	BlogArticlesEntity getArticleById(long id);
 	void delete(long id);
