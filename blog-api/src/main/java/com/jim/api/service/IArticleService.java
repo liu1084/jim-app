@@ -11,8 +11,9 @@ import java.util.List;
  * This class is ...
  */
 public interface IArticleService {
-	APIResponse save(BlogArticlesEntity articlesEntity);
+	void save(BlogArticlesEntity articlesEntity);
 	List<BlogArticlesEntity> read();
 	BlogArticlesEntity getArticleById(long id);
+	Long update(long id, BlogArticlesEntity entity);
 	void delete(long id);
 }

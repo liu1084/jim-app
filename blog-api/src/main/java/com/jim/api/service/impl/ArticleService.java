@@ -40,10 +40,8 @@ public class ArticleService extends BaseJPAServiceImpl implements IArticleServic
 	}
 
 	@Override
-	public APIResponse save(BlogArticlesEntity articleDTO) {
-		BlogArticlesEntity entity = new BlogArticlesEntity();
-		articleRepository.save(articleDTO);
-		return APIResponse.toOkResponse(entity);
+	public void save(BlogArticlesEntity entity) {
+		articleRepository.save(entity);
 	}
 
 	@Override
@@ -54,6 +52,12 @@ public class ArticleService extends BaseJPAServiceImpl implements IArticleServic
 	@Override
 	public BlogArticlesEntity getArticleById(long id) {
 		return articleRepository.getArticleById(id);
+	}
+
+	@Override
+	public Long update(long id, BlogArticlesEntity entity) {
+
+		return null;
 	}
 
 	@Override
