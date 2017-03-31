@@ -55,9 +55,8 @@ public class ArticleService extends BaseJPAServiceImpl implements IArticleServic
 	}
 
 	@Override
-	public Long update(long id, BlogArticlesEntity entity) {
-
-		return null;
+	public void update(BlogArticlesEntity entity) {
+		articleRepository.update(entity);
 	}
 
 	@Override

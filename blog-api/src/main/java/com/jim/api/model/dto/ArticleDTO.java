@@ -7,13 +7,14 @@ import java.sql.Timestamp;
  * This class is ...
  */
 public class ArticleDTO {
+	private long id;
 	private String title;
 	private String content;
 	private String background;
 	private long userId;
 	private String status;
 	private String password;
-	private int sticky;
+	private String sticky;
 	private byte rating;
 	private long parentId;
 	private String commentStatus;
@@ -67,11 +68,11 @@ public class ArticleDTO {
 		this.password = password;
 	}
 
-	public int getSticky() {
+	public String getSticky() {
 		return sticky;
 	}
 
-	public void setSticky(int sticky) {
+	public void setSticky(String sticky) {
 		this.sticky = sticky;
 	}
 
@@ -107,4 +108,11 @@ public class ArticleDTO {
 		this.commentCount = commentCount;
 	}
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 }

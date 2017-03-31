@@ -14,6 +14,6 @@ public interface IArticleService {
 	void save(BlogArticlesEntity articlesEntity);
 	List<BlogArticlesEntity> read();
 	BlogArticlesEntity getArticleById(long id);
-	Long update(long id, BlogArticlesEntity entity);
+	void update(BlogArticlesEntity entity);
 	void delete(long id);
 }

@@ -52,7 +52,12 @@ public class ArticleRepository extends BaseHibernateJPARepository implements IAr
 		return entity;
 	}
 
-	@Override
+	@Transactional
+	public void update(BlogArticlesEntity articlesEntity) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(articlesEntity);
+	}
+
 	@Transactional
 	public void delete(long id) {
 		Session session = sessionFactory.getCurrentSession();

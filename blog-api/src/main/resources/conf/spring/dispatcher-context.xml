@@ -24,6 +24,7 @@
             <tx:method name="*" />
         </tx:attributes>
     </tx:advice>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
     <util:properties id="properties" location="classpath:api.properties"/>
     <import resource="classpath:conf/spring/*-config.xml"/>
 </beans>

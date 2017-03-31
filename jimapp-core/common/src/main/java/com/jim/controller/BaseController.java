@@ -1,4 +1,4 @@
-package com.jim.controllers;
+package com.jim.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

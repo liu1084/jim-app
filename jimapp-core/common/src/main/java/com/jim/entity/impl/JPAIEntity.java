@@ -41,7 +41,7 @@ public abstract class JPAIEntity<T extends Serializable> implements IEntity {
 
 	@XmlElement(type = Objects.class)
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public T getId() {
 		return id;
 	}

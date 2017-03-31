@@ -14,5 +14,6 @@ public interface IArticleRepository extends IBaseJPARepository {
 	void save(BlogArticlesEntity articlesEntity);
 	List<BlogArticlesEntity> read();
 	BlogArticlesEntity getArticleById(long id);
+	void update(BlogArticlesEntity articlesEntity);
 	void delete(long id);
 }

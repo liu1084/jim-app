@@ -14,11 +14,31 @@ public class ArticleInfoGenerator {
 		entity.setContent(dto.getContent());
 		entity.setBackground(dto.getBackground());
 		entity.setUserId(dto.getUserId());
+		entity.setUserId(1);
+		entity.setStatus(getArticleStatus(dto.getStatus()));
+		if (dto.getPassword() != null){
+			entity.setPassword(dto.getPassword());
+		}
+		entity.setSticky(getArticleSticky(dto.getSticky()));
+		entity.setRating(dto.getRating());
+		entity.setParent(dto.getParent());
+		entity.setCommentStatus(getArticleCommentStatus(dto.getCommentStatus()));
+		entity.setCommentCount(dto.getCommentCount());
+		return entity;
+	}
+
+	public static BlogArticlesEntity generate(ArticleDTO dto, BlogArticlesEntity entity) {
+		entity.setTitle(dto.getTitle());
+		entity.setContent(dto.getContent());
+		entity.setBackground(dto.getBackground());
+		entity.setUserId(dto.getUserId());
 		entity.setStatus(getArticleStatus(dto.getStatus()));
 		entity.setCommentStatus(getArticleCommentStatus(dto.getCommentStatus()));
 		entity.setCommentCount(dto.getCommentCount());
 		return entity;
 	}
+
+
 
 	private static BlogArticlesEntity.ArticleStatus getArticleStatus(String s) {
 		BlogArticlesEntity.ArticleStatus status;

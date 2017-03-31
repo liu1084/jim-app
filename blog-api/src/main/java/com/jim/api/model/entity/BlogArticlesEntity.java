@@ -24,7 +24,7 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 	private String password;
 	private ArticleSticky sticky;
 	private int rating;
-	private int parent_id;
+	private long parent_id;
 	private ArticleCommentStatus commentStatus;
 	private int commentCount;
 
@@ -166,11 +166,11 @@ public class BlogArticlesEntity extends JPAIEntity<Long> {
 
 	@Basic
 	@Column(name = "parent_id")
-	public int getParent() {
+	public long getParent() {
 		return parent_id;
 	}
 
-	public void setParent(int parent) {
+	public void setParent(long parent) {
 		this.parent_id = parent;
 	}
 
