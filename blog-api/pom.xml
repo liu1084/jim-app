@@ -128,12 +128,6 @@
             <artifactId>jta</artifactId>
         </dependency>
 
-        <!-- Spring Data JPA -->
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-        </dependency>
-
         <!-- mysql-->
         <dependency>
             <groupId>mysql</groupId>

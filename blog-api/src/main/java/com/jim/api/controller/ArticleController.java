@@ -52,14 +52,15 @@ public class ArticleController extends BaseController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public APIResponse delete(@PathVariable Long id){
-		if (StringUtils.isNotEmpty(String.valueOf(id))){
-			articleService.delete(id);
-			return APIResponse.toOkResponse(id);
+		BlogArticlesEntity entity = articleService.getArticleById(id);
+		if (entity == null){
+			return APIResponse.toErrorResponse("article is not existed by id:" + id);
 		}
-		return APIResponse.toErrorResponse("id is required");
+		articleService.delete(id);
+		return APIResponse.toOkResponse(id);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	public APIResponse update(@PathVariable Long id, @ModelAttribute("article") ArticleDTO articleDTO, BindingResult result){
 		BlogArticlesEntity entity = articleService.getArticleById(id);
 		if (entity == null){
